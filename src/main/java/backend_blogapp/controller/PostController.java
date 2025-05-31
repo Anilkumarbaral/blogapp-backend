@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173") // Adjust the origin as needed
+@CrossOrigin // Adjust the origin as needed
 @RequestMapping("/api/posts")
 public class PostController {
 
