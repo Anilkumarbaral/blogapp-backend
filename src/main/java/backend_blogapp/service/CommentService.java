@@ -42,7 +42,7 @@ public class CommentService {
     }
 
     // Get comments for a post
-    public List<Comment> getPostComments(Long postId) {
+    public List<Comment> getPostCommentsuser(Long postId) {
         return commentRepository.findByPostIdOrderByCreatedAtDesc(postId);
     }
 
@@ -60,7 +60,7 @@ public class CommentService {
     }
 
     // Delete comment
-    public void deleteComment(Long commentId, Long authorId) {
+    public void deleteCommentuser(Long commentId, Long authorId) {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new RuntimeException("Comment not found!"));
 
@@ -77,7 +77,7 @@ public class CommentService {
     }
 
     // Count comments for a post
-    public Long getCommentCount(Long postId) {
+    public Long getCommentCountuser(Long postId) {
         return commentRepository.countByPostId(postId);
     }
 }
