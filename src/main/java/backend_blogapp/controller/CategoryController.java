@@ -4,6 +4,8 @@ import backend_blogapp.dto.request.CategoryRequest;
 import backend_blogapp.dto.response.CategoryResponse;
 import backend_blogapp.service.CategoryService;
 import jakarta.validation.Valid;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
+@Data
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -21,7 +25,9 @@ public class CategoryController {
     // Create a new category
     @PostMapping
     public ResponseEntity<CategoryResponse> createCategory(@Valid @RequestBody CategoryRequest request) throws BadRequestException {
+        log.info("create category method called..");
         CategoryResponse category = categoryService.createCategory(request);
+        log.info("created category method called completed..");
         return ResponseEntity.ok(category);
     }
 
